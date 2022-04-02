@@ -27,11 +27,6 @@ nav form {
     justify-content: space-between;
 }
 
-nav p {
-    display: relative;
-    margin-top: 0px;
-}
-
 .timer {
     display: flex;
     justify-content: center;
@@ -42,21 +37,16 @@ nav p {
     margin-left: 1rem;
 }
 
-.score label {
-    color: var(--secondary-color);
-}
-
 button {
-    margin-left: 20px;
+   align-items: center;
     font-size: 1.5rem;
-    padding: 5px 10px 5px 10px;
     border-radius: 10px;
     background-color: antiquewhite;
     color: darkgreen;
 }
 
 button:hover {
-    background-color: var(--secondary-color)
+    background-color: white;
 }
 
 #quiz-question {
