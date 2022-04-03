@@ -1,3 +1,4 @@
+// Universal Variables
 var timeRemaining = document.getElementById("time-remaining"); 
 var highScore = document.getElementById("high-score");
 var startQuiz = document.getElementById("start-btn");
@@ -53,11 +54,7 @@ var quizQuestions = [
 	}	
 ];
 
-var highScoreArr = [
-	{user: ""},
-	{score: ""}
-];
-
+//  Start quiz and timer
 var secondsLeft = 75;
 var beginQuiz = function() {
     function startTimer() {
@@ -91,23 +88,22 @@ var nextQuestion = function() {
 		showQuestions(quizQuestions[questionNumber]);
 	};
 };
-
+// Display questions and results
 var showQuestions = function(question) {
 
 	document.querySelector(".start-page").classList.add("hide");
 	var theQuestion = document.createElement("h1");
 	theQuestion.textContent = question.question;
 	document.getElementById("quiz-questions").appendChild(theQuestion);
-	var questionChoices = document.createElement("div");
 
 	for (var i = 0; i < question.answers.length; i++) {
-		var questionAnswers = document.createElement("button")
-		questionAnswers.textContent = question.answers[i].text;
-		questionAnswers.classList.add("answers-style")
-		questionAnswers.setAttribute("answer", question.answers[i].correct);
-		document.getElementById("quiz-questions").appendChild(questionAnswers);
-		questionAnswers.classList.add("used")
-		questionAnswers.addEventListener("click", function(event) {
+		var quizAnswers = document.createElement("button")
+		quizAnswers.textContent = question.answers[i].text;
+		quizAnswers.classList.add("answers-style")
+		quizAnswers.setAttribute("answer", question.answers[i].correct);
+		document.getElementById("quiz-questions").appendChild(quizAnswers);
+		quizAnswers.classList.add("used")
+		quizAnswers.addEventListener("click", function(event) {
 			var answerCorrect = JSON.parse(event.target.getAttribute("answer"));
 			if (!answerCorrect) {
 				confimation.classList.add("result")
@@ -128,7 +124,6 @@ var showQuestions = function(question) {
 	}
 };
 
-
 var endQuiz = function() {
 	document.getElementById("nav").classList.add("hide");
 	var highScore = secondsLeft;
@@ -136,7 +131,7 @@ var endQuiz = function() {
 	document.getElementById("quiz-questions").innerHTML = "";
 	document.getElementById("answer-result").innerHTML = "";
 	
-	// allow user to save their high score 
+	// Save highscore to local storage
 	if (secondsLeft > 0) {
 		var endPage = document.createElement("h1");
 		endPage.textContent = ("You finished with a score of " + secondsLeft + ".");
@@ -155,6 +150,11 @@ var endQuiz = function() {
 		saveHighScore.textContent = "Save score";
 		document.getElementById("results").appendChild(saveHighScore);
 
+		var highScoreArr = [
+			{user: ""},
+			{score: ""}
+		];
+		
 		saveHighScore.addEventListener("click", function(){
 			var initials = document.querySelector("input").value;
 			highScoreArr = [initials, highScore];
@@ -164,12 +164,12 @@ var endQuiz = function() {
 
 	} else {
 		var outOfTime = document.createElement("h1");
-		outOfTime.textContent = ("Sorry! You ran out of time. Try again?");
+		outOfTime.textContent = ("Time has expired!");
 		document.getElementById("results").appendChild(outOfTime);
 	}
-};
+}
 
 var saveScore = function() {
 	localStorage.setItem("highscore", JSON.stringify(highScoreArr));
-  console.log(savescores)
+  console.log(saveScore)
   };

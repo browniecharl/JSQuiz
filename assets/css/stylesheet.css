@@ -8,11 +8,20 @@ main {
     justify-content: center;
     margin-left: 20%;
     margin-right: 20%;
+    margin-top: 20%;
 }
 
-h1 {
-    font-size: 2.5rem;
-}
+button {
+    align-items: center;
+     font-size: 1.5rem;
+     border-radius: 10px;
+     background-color: antiquewhite;
+     color: darkgreen;
+ }
+ 
+ button:hover {
+     background-color: white;
+ }
 
 .hide {
     display: none;
@@ -25,6 +34,7 @@ h1 {
 nav form {
     display: flex;
     justify-content: space-between;
+    font-size: 1.5rem;
 }
 
 .timer {
@@ -37,16 +47,8 @@ nav form {
     margin-left: 1rem;
 }
 
-button {
-   align-items: center;
-    font-size: 1.5rem;
-    border-radius: 10px;
-    background-color: antiquewhite;
-    color: darkgreen;
-}
-
-button:hover {
-    background-color: white;
+h1 {
+    font-size: 2.5rem;
 }
 
 #quiz-question {
@@ -62,5 +64,12 @@ button:hover {
 .result {
     margin-top: 10px;
     color: darkgreen;
+}
+
+#container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10%;
 }
     
